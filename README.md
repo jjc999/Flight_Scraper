@@ -14,7 +14,6 @@ Here is an overview of the process:
 TODO
 - Build the userData class and methods
   - Decide what the data members should be
-  - Write the method that collects the data from the user in the terminal.  Could this just be in the constructor?
 - Use Selenium to input the user data into the browser
   - Make sure I can use Selenium in replit.
   - Figure out the xPaths for each of the spots on the website (learn how to access the things I need)
