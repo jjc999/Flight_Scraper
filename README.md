@@ -16,7 +16,6 @@ TODO
   - Decide what the data members should be
 - Use Selenium to input the user data into the browser
   - Define the seleniumFS class
-    - Make sure I can use Selenium in replit.
     - Figure out the xPaths for each of the spots on the website (learn how to access the things I need)
     - Define data members for xPaths
     - An instance of userData should either be a data member or passed to the constructor
