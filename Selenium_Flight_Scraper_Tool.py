@@ -19,5 +19,7 @@ class seleniumFS:
     self.browser.get(self.google_flights_url)
 
   def input_user_data(self, user):
-    self.browser.find_element_by_xpath(self.xPaths['departure_airport'])
+    departure_airport_elem = self.browser.find_element_by_xpath(self.xPaths['departure_airport'])
+    departure_airport_elem.clear()
+    departure_airport_elem.send_keys(user.departure_airport)
     # TODO: input user data at this xPath (note that the xPath I am using now might not be correct) using Keys.  In other words, I need to confirm that I have the right xPath and actually input the user data onto the page using Keys.

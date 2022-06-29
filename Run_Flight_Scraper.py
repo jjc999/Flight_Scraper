@@ -4,7 +4,7 @@ from Selenium_Flight_Scraper_Tool import seleniumFS
 # -----------------
 # Gather User Data
 # -----------------
-# user = userData()
+user = userData()
 # user.get_user_data() # print user data to confirm I got it correctly
 
 # -----------------------------
@@ -12,3 +12,4 @@ from Selenium_Flight_Scraper_Tool import seleniumFS
 # -----------------------------
 SFS = seleniumFS()
 SFS.open_browser()
+SFS.input_user_data(user)
