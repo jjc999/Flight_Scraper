@@ -4,8 +4,8 @@ from Selenium_Flight_Scraper_Tool import seleniumFS
 # -----------------
 # Gather User Data
 # -----------------
-user = userData()
-# user.get_user_data() # print user data to confirm I got it correctly
+user = userData(use_defaults=1)
+user.get_user_data() # print user data to confirm I got it correctly
 
 # -----------------------------
 # Use Selenium to open browser

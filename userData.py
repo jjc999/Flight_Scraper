@@ -1,14 +1,16 @@
 class userData:
-  def __init__(self):
+  def __init__(self, use_defaults=0):
     # Set default values for data members
-    self.departure_airport = 'SLC'
-    self.arrival_airport = 'Rome'
-    self.date_leave = 'Jul 31'
-    self.date_return = 'Aug 3'
-    self.flight_type = 'Round Trip'  # round trip vs. one-way
+    if use_defaults:
+      self.departure_airport = 'SLC'
+      self.arrival_airport = 'Rome'
+      self.date_leave = '9/20/22'
+      self.date_return = '9/30/22'
+      self.flight_type = 'Round Trip'  # round trip vs. one-way
 
     # Ask user for flight info
-    self.set_user_data()
+    else:
+      self.set_user_data()
 
   def set_user_data(self):
     # Ask the user to input the flight information they want to search
