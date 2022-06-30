@@ -3,6 +3,7 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
+import time
 
 class seleniumFS:
   def __init__(self):
@@ -19,7 +20,9 @@ class seleniumFS:
     self.browser.get(self.google_flights_url)
 
   def input_user_data(self, user):
-    departure_airport_elem = self.browser.find_element("xpath", self.xPaths['departure_airport'])
+    # departure_airport_elem = self.browser.find_element("xpath", self.xPaths['departure_airport'])
+    departure_airport_elem = self.browser.switch_to.active_element;
     departure_airport_elem.clear()
     departure_airport_elem.send_keys(user.departure_airport)
+    time.sleep(5)
     # TODO: input user data at this xPath (note that the xPath I am using now might not be correct) using Keys.  In other words, I need to confirm that I have the right xPath and actually input the user data onto the page using Keys.
