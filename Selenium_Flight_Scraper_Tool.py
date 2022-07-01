@@ -14,7 +14,8 @@ class seleniumFS:
     self.google_flights_url = "https://www.google.com/travel/flights"
 
     # Dictionary of xPaths for google flights website
-    self.xPaths = {'departure_airport': "//*[@id='i15']/div[6]/div[2]/div[2]/div[1]/div/input"}
+    self.xPaths = {'departure_airport': "//*[@id='i14']/div[6]/div[2]/div[2]/div[1]/div/input",
+                   'arrival_airport': "//*[@id='i14']/div[6]/div[2]/div[2]/div[1]/div/input"}
 
   def open_browser(self):
     self.browser.get(self.google_flights_url)
@@ -24,12 +25,26 @@ class seleniumFS:
     # -----------------------------
     # I figured out that the departure airport box is the default active element, so I can just click on that to be able to input text.  Once I click on it, I am able to get to the text element that I can actually use Selenium to interact with (what the xpath now references).  Once I get that, I can send the departure airport text to the box.  I then click ENTER to return to the search page and then hit TAB to move over to the arrival airport box.  My strategy now is to try finding the xpaths for each element following this approach and to google around and see if other people have done this and can just give me the xpaths.
     # -----------------------------
-    # departure_airport_elem = self.browser.find_element("xpath", self.xPaths['departure_airport'])
+    # Enter depature airport
     departure_airport_box = self.browser.switch_to.active_element  # Departure Airport box
     departure_airport_box.click()  # Click box to be able to input text
     departure_airport_text = self.browser.find_element("xpath", self.xPaths['departure_airport'])
     departure_airport_text.send_keys(user.departure_airport)
     departure_airport_text.send_keys(Keys.ENTER)
     departure_airport_box.send_keys(Keys.TAB)  # Move over to arrival airport box
-    time.sleep(5)
-    # TODO: input user data at this xPath (note that the xPath I am using now might not be correct) using Keys.  In other words, I need to confirm that I have the right xPath and actually input the user data onto the page using Keys.
+
+    # Enter arrival airport
+    arrival_airport_box = self.browser.switch_to.active_element
+    arrival_airport_box.click()
+    arrival_airport_text = self.browser.find_element("xpath", self.xPaths['arrival_airport'])
+    arrival_airport_text.send_keys(user.arrival_airport)
+    arrival_airport_text.send_keys(Keys.ENTER)
+    arrival_airport_box.send_keys(Keys.TAB)  # Move over to date box
+
+    # Enter dates
+
+    # Enter flight type (only need to change to One-Way)
+    # if user.flight_type == 'One-Way':
+      # TODO: Learn how to change flight type using the dropdown
+      
+    time.sleep(10)
